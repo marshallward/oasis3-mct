@@ -17,7 +17,8 @@ F90         = scorep mpif90
 F           = $(F90)
 f90         = $(F90)
 f           = $(F90)
-CC          = scorep icc
+#CC          = scorep icc
+CC          = icc
 LD          = scorep mpif90
 AR          = ar
 ARFLAGS     = -ruv
@@ -39,7 +40,6 @@ FFLAGS_1    = $(F90FLAGS_1)
 fFLAGS_1    = $(F90FLAGS_1)
 CCFLAGS_1   = 
 LDFLAGS     = 
-
 #
 ###################
 #
