@@ -1,0 +1,14 @@
+module purge
+module load intel-fc/17.0.1.132
+module load intel-cc/17.0.1.132
+module load netcdf/4.2.1.1
+#module load openmpi/1.10.2
+module load openmpi/2.1.2
+
+module use /apps/Modules/restricted-modulefiles/hpc-opt
+module load scorep/3.1
+
+# Correct PAPI module
+module unload papi
+module use /short/z35/dsr900/tools/Modules
+module load papi/5.1.1-patched
