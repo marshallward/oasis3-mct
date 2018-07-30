@@ -1,16 +1,12 @@
 
-.PHONY: nci scorep
+.PHONY: nci scorep ompi2 impi
 
 export OASIS_HOME=$(shell pwd)
 SHELL=/bin/bash
 
-nci:
-	echo "include $(shell pwd)/util/make_dir/make.nci" > util/make_dir/make.inc
-	source ./util/make_dir/config.nci && cd util/make_dir && make -j 4 -f TopMakefileOasis3 
-
-scorep:
-	echo "include $(shell pwd)/util/make_dir/make.scorep" > util/make_dir/make.inc
-	source ./util/make_dir/config.scorep && cd util/make_dir && make -j 4 -f TopMakefileOasis3 
+nci scorep ompi2 impi:
+	echo "include $(shell pwd)/util/make_dir/make.$@" > util/make_dir/make.inc
+	source ./util/make_dir/config.$@ && cd util/make_dir && make -j 4 -f TopMakefileOasis3 
 
 ubuntu:
 	echo "include $(shell pwd)/util/make_dir/make.ubuntu" > util/make_dir/make.inc
