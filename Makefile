@@ -4,7 +4,7 @@
 export OASIS_HOME=$(shell pwd)
 SHELL=/bin/bash
 
-nci scorep ompi2 impi:
+nci scorep ompi2 ompi3 impi:
 	echo "include $(shell pwd)/util/make_dir/make.$@" > util/make_dir/make.inc
 	source ./util/make_dir/config.$@ && cd util/make_dir && make -j 4 -f TopMakefileOasis3 
 
