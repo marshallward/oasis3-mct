@@ -92,9 +92,10 @@ CONTAINS
    mpi_comm_global = ??
 #endif
 
-   ! Install MPI error handlers.
-   CALL MPI_Comm_create_errhandler(error_handler_traceback, traceback_handler, mpi_err)
-   CALL MPI_Comm_set_errhandler(mpi_comm_global, traceback_handler, mpi_err)
+   ! MLW: disable for now, sometimes interferes with normal logging
+   !! Install MPI error handlers.
+   !CALL MPI_Comm_create_errhandler(error_handler_traceback, traceback_handler, mpi_err)
+   !CALL MPI_Comm_set_errhandler(mpi_comm_global, traceback_handler, mpi_err)
 
    CALL MPI_Comm_Size(mpi_comm_global,mpi_size_global,mpi_err)
    CALL MPI_Comm_Rank(mpi_comm_global,mpi_rank_global,mpi_err)
