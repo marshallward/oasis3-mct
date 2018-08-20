@@ -1,5 +1,9 @@
 module purge
-module load intel-cc/2018.3.222
-module load intel-fc/2018.3.222
+#module load intel-cc/2018.3.222
+#module load intel-fc/2018.3.222
+module load intel-cc/17.0.1.132
+module load intel-fc/17.0.1.132
 module load netcdf/4.2.1.1
-module load openmpi/2.1.2-debug
+#module load openmpi/2.1.2-debug
+module use /home/157/mxw157/modules
+module load openmpi/2.1.5
