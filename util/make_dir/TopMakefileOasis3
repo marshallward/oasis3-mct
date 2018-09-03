@@ -21,6 +21,10 @@ LIBSRC  = $(COUPLE)/lib
 LOG = $(COUPLE)/util/make_dir/COMP.log
 ERR = $(COUPLE)/util/make_dir/COMP.err
 #
+# Score-P support
+# Score-p typically interferes with configure scripts, so we strip it here
+F90_CONF := $(filter-out scorep, $(F90))
+CC_CONF := $(filter-out scorep, $(CC))
 #######
 default: 
 	 rm -f $(LOG) $(ERR)
@@ -53,7 +57,7 @@ makedirs:
 makemct:
 	@echo "=> Compiling library mpeu and mct"
 	(cd $(ARCHDIR)/build/lib/mctdir; cp -f -r -p $(LIBSRC)/mct/* .;\
-         ./configure MPIFC="$(F90)" FC="$(F90)" CC="$(CC)" FCFLAGS="$(MCT_FCFLAGS)" \
+         ./configure MPIFC="$(MPIF90)" FC="$(F90_CONF)" CC="$(CC_CONF)" FCFLAGS="$(MCT_FCFLAGS)" \
           > >(tee -a $(LOG)) 2> >(tee -a $(ERR) >&2) ;\
          $(MAKE) > >(tee -a $(LOG)) 2> >(tee -a $(ERR) >&2) ; \
          cp -f ./*/lib*.a   $(ARCHDIR)/lib/; \
