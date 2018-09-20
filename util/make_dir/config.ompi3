@@ -4,5 +4,5 @@ module purge
 module load intel-cc/17.0.1.132
 module load intel-fc/17.0.1.132
 module load netcdf/4.2.1.1
-module use /home/157/mxw157/modules
+#module use /home/157/mxw157/modules
 module load openmpi/3.1.2
